@@ -4,7 +4,9 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
+  height: calc(100vh - 6rem);
 `;
 
 export const Logo = styled.h1`
