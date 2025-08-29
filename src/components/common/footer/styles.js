@@ -32,3 +32,16 @@ export const Wrapper = styled.footer`
     text-decoration: underline;
   }
 `;
+
+export const MenuItem = styled.a`
+  color: #fff !important;
+`;
+
+export const darkBtn = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  color: "#fff",
+};
+
+export const darkBg = { backgroundColor: "#1F1F1F" };
