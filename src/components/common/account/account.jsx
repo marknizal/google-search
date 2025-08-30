@@ -16,7 +16,7 @@ import {
   LuCircleHelp,
 } from "react-icons/lu";
 
-const acc = [
+const account = [
   { id: 1, icon: LuPlus, label: "Add account" },
   { id: 2, icon: LuLogOut, label: "Sign Out" },
 ];
@@ -26,9 +26,9 @@ const search = [
   { id: 2, icon: LuTrash, label: "Delete last 15 min" },
 ];
 
-const save = [{ id: 1, icon: LuBookmarkCheck, label: "Save & Collections" }];
+const saved = [{ id: 1, icon: LuBookmarkCheck, label: "Save & Collections" }];
 
-const prefs = [
+const preferences = [
   { id: 1, icon: LuSearch, label: "Search personalization" },
   { id: 2, icon: LuShield, label: "SafeSearch" },
   { id: 3, icon: LuGlobe, label: "Language" },
@@ -41,36 +41,33 @@ const prefs = [
   },
 ];
 
-const RenderList = ({ items, flex = false }) => (
-  <S.List className={flex ? "flex" : ""}>
-    {items.map((item) => {
-      if (item.subItems) {
-        return (
-          <li key={item.id} style={{ padding: 0 }}>
-            <S.List style={S.merge} className="flex">
-              {item.subItems.map((sub) => (
-                <li key={sub.id}>
-                  <sub.icon /> {sub.label}
-                </li>
-              ))}
-            </S.List>
-          </li>
-        );
-      }
-      return (
-        <li key={item.id}>
+const RenderList = ({ items, grid = false, flat = false }) => (
+  <S.List $grid={grid} $flat={flat}>
+    {items.map((item) =>
+      item.subItems ? (
+        <S.Item key={item.id} style={{ padding: 0 }}>
+          <S.List $grid $flat>
+            {item.subItems.map((sub) => (
+              <S.Item key={sub.id}>
+                <sub.icon /> {sub.label}
+              </S.Item>
+            ))}
+          </S.List>
+        </S.Item>
+      ) : (
+        <S.Item key={item.id}>
           <item.icon /> {item.label}
-        </li>
-      );
-    })}
+        </S.Item>
+      )
+    )}
   </S.List>
 );
 
 const Account = () => (
   <S.Wrapper>
-    <span className="mail">marknizal@gmail.com</span>
+    <S.Email>marknizal@gmail.com</S.Email>
 
-    <S.Section className="small-gap">
+    <S.Section $compact>
       <S.Avatar>
         <img
           src={Profile}
@@ -79,32 +76,30 @@ const Account = () => (
         />
       </S.Avatar>
 
-      <h1 id="profile-section" className="hello">
-        Hi, Mark John Allen!
-      </h1>
+      <S.Hello>Hi, Mark John Allen!</S.Hello>
 
-      <Button className="btn" variant="outlined">
+      <S.Button as={Button} className="btn">
         Manage your Google Account
-      </Button>
+      </S.Button>
     </S.Section>
 
     <S.Section aria-labelledby="account-actions">
-      <RenderList items={acc} flex />
+      <RenderList items={account} grid />
     </S.Section>
 
     <S.Section aria-labelledby="more-from-google">
-      <small className="small" style={{ alignSelf: "start" }}>
+      <small style={{ alignSelf: "start", fontSize: "0.8rem", color: "#ccc" }}>
         More from Google Search
       </small>
       <RenderList items={search} />
-      <RenderList items={save} />
-      <RenderList items={prefs} />
+      <RenderList items={saved} />
+      <RenderList items={preferences} />
     </S.Section>
 
-    <small className="small">
+    <S.Footer>
       <a href="/privacy">Privacy Policy</a>·
       <a href="/terms">Terms of Service</a>
-    </small>
+    </S.Footer>
   </S.Wrapper>
 );
 

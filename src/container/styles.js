@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoint } from "../styles";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -6,13 +7,21 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  height: calc(100vh - 6rem);
+  flex: 1;
+
+  ${breakpoint.mobile} {
+    gap: 1rem;
+  }
 `;
 
 export const Logo = styled.h1`
   font-size: 5rem;
   font-weight: 500;
   font-family: "Poppins", Courier;
+
+  ${breakpoint.mobile} {
+    font-size: 3rem;
+  }
 `;
 
 export const Search = styled.form`
@@ -37,6 +46,10 @@ export const Search = styled.form`
 
   &:focus-within {
     background-color: #303134;
+  }
+
+  ${breakpoint.mobile} {
+    width: 100%;
   }
 `;
 
@@ -73,6 +86,12 @@ export const Box = styled.div`
   align-items: stretch;
   gap: 1rem;
   margin-top: 0.5rem;
+
+  &.actions {
+    ${breakpoint.mobile} {
+      display: none;
+    }
+  }
 `;
 
 export const Button = styled.button`

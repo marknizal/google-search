@@ -7,4 +7,5 @@ export const Main = styled.main`
   justify-content: center;
   background-color: #202124;
   color: #fff;
+  min-height: 100vh;
 `;

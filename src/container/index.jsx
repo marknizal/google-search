@@ -30,7 +30,7 @@ const Google = () => {
         </S.Icon>
       </S.Search>
 
-      <S.Box>
+      <S.Box className="actions">
         <S.Button type="submit">Google Search</S.Button>
         <S.Button
           type="button"

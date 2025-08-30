@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { breakpoint } from "../../../styles";
 
 export const Wrapper = styled.ul`
   list-style: none;
@@ -10,6 +11,10 @@ export const Wrapper = styled.ul`
   border-radius: 2rem;
   border: 7px solid #282a2c;
   padding: 1.75rem;
+
+  ${breakpoint.mobile} {
+    padding: 1rem;
+  }
 `;
 
 export const Item = styled.li`
@@ -21,6 +26,7 @@ export const Item = styled.li`
   padding: 0.5rem;
   border-radius: 1rem;
   transition: background-color 0.2s ease;
+  cursor: pointer;
 
   &:hover {
     background-color: #282a2c;

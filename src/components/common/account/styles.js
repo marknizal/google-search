@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoint } from "../../../styles";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,44 +14,27 @@ export const Wrapper = styled.div`
   max-height: 85dvh;
   overflow: auto;
 
+  ${breakpoint.mobile} {
+    min-width: 100%;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+`;
 
-  .mail {
-    font-size: 0.9rem;
-  }
+export const Avatar = styled.div`
+  width: 5rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
 
-  .hello {
-    font-size: 1.4rem;
-    font-weight: 500;
-  }
-
-  .btn {
-    border-radius: 2rem;
-    padding: 1.15rem;
-    background: transparent;
-    color: #a8c7fa;
-
-    &:hover {
-      background: #33373c !important;
-      color: #a8c7fa !important;
-    }
-  }
-
-  .small {
-    display: flex;
-    gap: 0.75rem;
-    font-size: 0.8rem;
-    color: #ccc;
-
-    a {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -58,58 +42,83 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: ${(props) => (props.$compact ? "0.5rem" : "1rem")};
   width: 100%;
-
-  &.small-gap {
-    gap: 0.5rem;
-  }
 `;
 
-export const Avatar = styled.div`
-  width: 5rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  overflow: hidden;
+export const Email = styled.span`
+  font-size: 0.9rem;
+  color: #ddd;
+`;
 
-  img {
-    object-fit: cover;
+export const Hello = styled.h1`
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0;
+`;
+
+export const Button = styled.button`
+  border-radius: 2rem;
+  padding: 1.15rem;
+  background: transparent;
+  color: #a8c7fa;
+  border: 1px solid #a8c7fa;
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: #33373c !important;
+    color: #a8c7fa !important;
   }
 `;
 
 export const List = styled.ul`
   list-style: none;
-  display: block;
   background: #212121;
-  border-radius: 2rem;
   width: 100%;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: ${(props) => (props.$grid ? "grid" : "block")};
+  grid-template-columns: ${(props) =>
+    props.$grid ? "repeat(2, 1fr)" : "none"};
+  border-radius: ${(props) => (props.$flat ? "0" : "2rem")};
+`;
 
-  &.flex {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+export const Item = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.15rem;
+  border-bottom: 1px solid #555;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  svg {
+    font-size: 1.25rem;
   }
 
-  li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.15rem;
-    border-bottom: 1px solid #555;
-    font-size: 0.9rem;
-    cursor: pointer;
+  &:hover {
+    background: #37393b;
+  }
 
-    svg {
-      font-size: 1.25rem;
-    }
-
-    &:hover {
-      background: #37393b;
-    }
-    &:last-child {
-      border-bottom: none;
-    }
+  &:last-child {
+    border-bottom: none;
   }
 `;
 
-export const merge = { borderRadius: 0 };
+export const Footer = styled.small`
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #ccc;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;

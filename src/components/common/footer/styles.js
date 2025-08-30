@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoint } from "../../../styles";
 
 export const Wrapper = styled.footer`
   width: 100%;
@@ -7,28 +8,56 @@ export const Wrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
 
-  .bottom {
+  ${breakpoint.mobile} {
+    color: #ccc;
+  }
+`;
+
+export const Address = styled.address`
+  font-style: normal;
+  align-self: flex-start;
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+
+  ${breakpoint.mobile} {
+    padding: 0.75rem;
+  }
+`;
+
+export const Nav = styled.nav`
+  border-top: 1px solid #555;
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  ${breakpoint.mobile} {
+    flex-direction: column;
     padding: 1rem 2rem;
-    font-size: 0.82rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
+`;
 
-  nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+export const NavList = styled.ul`
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${(props) => props.$gap || "2rem"};
+
+  ${breakpoint.mobile} {
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
   }
+`;
 
-  nav a {
-    color: inherit;
-    text-decoration: none;
-  }
+export const NavLink = styled.a`
+  color: inherit;
+  text-decoration: none;
 
-  nav a:hover,
-  nav a:focus {
+  &:hover,
+  &:focus {
     text-decoration: underline;
   }
 `;
