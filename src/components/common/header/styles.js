@@ -19,6 +19,12 @@ export const Wrapper = styled.header`
       font-size: 0.85rem;
       cursor: pointer;
 
+      .text {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
       svg {
         font-size: 1.5rem;
         flex-shrink: 0;

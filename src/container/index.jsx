@@ -14,13 +14,18 @@ const Google = () => {
           <LuSearch aria-hidden="true" />
         </S.Icon>
 
-        <S.Input name="search" type="search" aria-label="Search Google" />
+        <S.Input
+          name="search"
+          type="search"
+          aria-label="Search Google"
+          title="Search"
+        />
 
-        <S.Icon type="button" aria-label="Voice Search">
+        <S.Icon type="button" aria-label="Voice Search" title="Search by voice">
           <FaMicrophone aria-hidden="true" />
         </S.Icon>
 
-        <S.Icon type="button" aria-label="Image Search">
+        <S.Icon type="button" aria-label="Image Search" title="Search by image">
           <SiGooglelens aria-hidden="true" />
         </S.Icon>
       </S.Search>
