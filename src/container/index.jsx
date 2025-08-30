@@ -2,6 +2,7 @@ import { LuSearch } from "react-icons/lu";
 import { FaMicrophone } from "react-icons/fa";
 import { SiGooglelens } from "react-icons/si";
 
+import TrendingSearch from "../components/common/trending";
 import * as S from "./styles";
 
 const Google = () => {
@@ -44,6 +45,8 @@ const Google = () => {
         Google offered in: <a href="/setlang?lang=fil">Filipino</a>{" "}
         <a href="/setlang?lang=ceb">Cebuano</a>
       </S.Small>
+
+      <TrendingSearch />
     </S.Wrapper>
   );
 };

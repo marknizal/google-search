@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
 
   ${breakpoint.mobile} {
     gap: 1rem;
+    justify-content: end;
+    padding-top: 5rem;
   }
 `;
 
@@ -116,5 +118,9 @@ export const Small = styled.p`
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  ${breakpoint.mobile} {
+    margin-top: 1rem;
   }
 `;
