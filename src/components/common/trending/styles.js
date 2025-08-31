@@ -51,6 +51,6 @@ export const SearchInfo = styled.div`
 export const Thumbnail = styled.img`
   width: 2.5rem;
   aspect-ratio: 1/1;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
   margin-left: auto;
 `;
