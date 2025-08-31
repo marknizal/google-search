@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoint } from "../../../styles";
 
 export const Wrapper = styled.header`
   position: fixed;
@@ -36,5 +37,9 @@ export const Wrapper = styled.header`
     aspect-ratio: 1 / 1;
     width: 2.15rem;
     border-radius: 50%;
+  }
+
+  ${breakpoint.mobile} {
+    position: static;
   }
 `;

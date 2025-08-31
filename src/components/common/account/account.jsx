@@ -45,17 +45,17 @@ const RenderList = ({ items, grid = false, flat = false }) => (
   <S.List $grid={grid} $flat={flat}>
     {items.map((item) =>
       item.subItems ? (
-        <S.Item key={item.id} style={{ padding: 0 }}>
+        <S.Item key={item.id} $grid={grid} $flat={flat} style={{ padding: 0 }}>
           <S.List $grid $flat>
             {item.subItems.map((sub) => (
-              <S.Item key={sub.id}>
+              <S.Item key={sub.id} $grid $flat>
                 <sub.icon /> {sub.label}
               </S.Item>
             ))}
           </S.List>
         </S.Item>
       ) : (
-        <S.Item key={item.id}>
+        <S.Item key={item.id} $grid={grid} $flat={flat}>
           <item.icon /> {item.label}
         </S.Item>
       )

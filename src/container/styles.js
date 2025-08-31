@@ -8,11 +8,12 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 1.5rem;
   flex: 1;
+  padding: 1rem;
+  width: 100%;
 
   ${breakpoint.mobile} {
     gap: 1rem;
     justify-content: end;
-    padding-top: 5rem;
   }
 `;
 
@@ -22,7 +23,7 @@ export const Logo = styled.h1`
   font-family: "Poppins", Courier;
 
   ${breakpoint.mobile} {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 `;
 

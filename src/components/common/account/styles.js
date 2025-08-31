@@ -74,7 +74,6 @@ export const Button = styled.button`
 
 export const List = styled.ul`
   list-style: none;
-  background: #212121;
   width: 100%;
   overflow: hidden;
   margin: 0;
@@ -89,9 +88,12 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1.15rem;
-  border-bottom: 1px solid #555;
   font-size: 0.9rem;
+  padding: 1.15rem;
+  background: #1b1b1b;
+  border-radius: ${(props) => (props.$grid || props.$flat ? "0" : "0.4rem")};
+  border-bottom: ${(props) =>
+    props.$grid || props.$flat ? "none" : "2px solid #282a2c"};
   cursor: pointer;
 
   svg {
